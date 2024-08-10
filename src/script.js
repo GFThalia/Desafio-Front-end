@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let contadorProdutos = 1;
+    let contadorProdutos = 0;
     let anexos = [];
     
     // Função para calcular o valor total de um produto
@@ -14,7 +14,6 @@ $(document).ready(function () {
 
     // Função para adicionar produto à lista
     $('#adicionarProduto').click(function () {
-        contadorProdutos++;
         let produtoItem = `<div class="produto-item">
             <div class="section-and-button">
                 <div class="section-delete-button">
@@ -64,16 +63,26 @@ $(document).ready(function () {
         </div>`;
 
         $('#produtosLista').append(produtoItem);
+        atualizarTitulosProdutos();
     });
 
     // Função para excluir produto
     $(document).on('click', '.btnExcluirProduto', function () {
         if ($('.produto-item').length > 1) {
             $(this).closest('.produto-item').remove();
+            atualizarTitulosProdutos();
         } else {
             alert('Deve haver pelo menos um produto.');
         }
     });
+
+    // Atualiza os títulos dos produtos
+    function atualizarTitulosProdutos() {
+        $('.produto-item').each(function (index) {
+            $(this).find('.border-title').text('Produto ' + (index + 1));
+        });
+        contadorProdutos = $('.produto-item').length;
+    }
 
     // Função para calcular o valor total de um produto em tempo real
     $(document).on('input', '#quantidade, #valorUnitario', calcularValorTotal);
