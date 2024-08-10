@@ -1,0 +1,110 @@
+/* sections */
+.section-container {
+    border: 1px solid #000;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.section-header {
+    background-color: #007bff;
+    color: white;
+    padding: 3px;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: 20px;
+    border-radius: 5px 5px 0 0;
+    text-align: left;
+}
+
+.section-header h4 {
+    padding-left: 10px;
+}
+
+.section-content {
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.section-borda {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative; /* Para o posicionamento do botão */
+    margin-left: 30px;
+    flex-grow: 1; /* Faz com que a seção de produtos ocupe todo o espaço disponível */
+    margin-right: 10px; /* Espaço à direita da seção de produtos */
+}
+
+    /* section products */
+    .border-title {
+        position: absolute; /* Permite posicionar o título sobre a borda */
+        top: -20px; /* Ajuste para posicionar o título acima da borda */
+        left: 20px; /* Ajuste horizontal, se necessário */
+        background-color: white; /* Cor de fundo para esconder a borda */
+        padding: 0 5px; /* Espaçamento lateral para o título */
+    }
+    .section-and-button {
+        display: flex; /* Adiciona Flexbox para alinhar os itens horizontalmente */
+        align-items: center; /* Centraliza verticalmente os itens */
+    }
+
+/* Anexos */
+.anexo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.anexos {
+    margin-right: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+
+    /* forms */
+    
+.form-group {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* produtos */
+#produtosLista, #anexosLista {
+    margin-top: 20px;
+}
+
+#produtosLista .produto-item, #anexosLista {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.produto-item button, .anexo-item button {
+    margin-left: 10px;
+}
+
+/* botões */
+.btn-success-custom {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+}
+
+.btn-success-custom:hover {
+    background-color: darkgreen;
+}
