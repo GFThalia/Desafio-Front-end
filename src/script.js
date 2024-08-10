@@ -1,7 +1,26 @@
 $(document).ready(function () {
     let contadorProdutos = 0;
     let anexos = [];
+
+//Fornecedor
+    // Função para buscar endereço pelo CEP usando a API ViaCEP
+    $('#cep').blur(function () {
+        const cep = $(this).val().replace(/\D/g, '');
+        if (cep) {
+            $.getJSON(`https://viacep.com.br/ws/${cep}/json/`, function (dados) {
+                if (!("erro" in dados)) {
+                    $('#endereco').val(dados.logradouro);
+                    $('#bairro').val(dados.bairro);
+                    $('#municipio').val(dados.localidade);
+                    $('#estado').val(dados.uf);
+                } else {
+                    alert('CEP não encontrado.');
+                }
+            });
+        }
+    });
     
+//Produtos
     // Função para calcular o valor total de um produto
     function calcularValorTotal(event) {
         const produtoItem = $(event.target).closest('.produto-item');
@@ -87,6 +106,8 @@ $(document).ready(function () {
     // Função para calcular o valor total de um produto em tempo real
     $(document).on('input', '#quantidade, #valorUnitario', calcularValorTotal);
 
+
+//Anexos
     // Função para adicionar anexos
     $('#incluirAnexos').click(function () {
         const inputAnexo = $('<input type="file" class="d-none" accept=".pdf,.doc,.docx,.jpg,.png,.xls,.xlsx">');
@@ -130,23 +151,7 @@ $(document).ready(function () {
         URL.revokeObjectURL(url);
     });
 
-    // Função para buscar endereço pelo CEP usando a API ViaCEP
-    $('#cep').blur(function () {
-        const cep = $(this).val().replace(/\D/g, '');
-        if (cep) {
-            $.getJSON(`https://viacep.com.br/ws/${cep}/json/`, function (dados) {
-                if (!("erro" in dados)) {
-                    $('#endereco').val(dados.logradouro);
-                    $('#bairro').val(dados.bairro);
-                    $('#municipio').val(dados.localidade);
-                    $('#estado').val(dados.uf);
-                } else {
-                    alert('CEP não encontrado.');
-                }
-            });
-        }
-    });
-
+//Salvar Fornecedor
     // Função para salvar fornecedor e gerar JSON
     $('#salvarFornecedor').click(function () {
         if ($('#cadastroForm')[0].checkValidity()) {
