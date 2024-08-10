@@ -10,10 +10,7 @@
     background-color: #007bff;
     color: white;
     padding: 3px;
-    margin-top: -20px;
-    margin-left: -20px;
-    margin-right: -20px;
-    margin-bottom: 20px;
+    margin: -20px -20px 20px -20px;
     border-radius: 5px 5px 0 0;
     text-align: left;
 }
@@ -32,24 +29,22 @@
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
-    position: relative; /* Para o posicionamento do botão */
+    position: relative;
     margin-left: 30px;
-    flex-grow: 1; /* Faz com que a seção de produtos ocupe todo o espaço disponível */
-    margin-right: 10px; /* Espaço à direita da seção de produtos */
 }
 
-    /* section products */
-    .border-title {
-        position: absolute; /* Permite posicionar o título sobre a borda */
-        top: -20px; /* Ajuste para posicionar o título acima da borda */
-        left: 20px; /* Ajuste horizontal, se necessário */
-        background-color: white; /* Cor de fundo para esconder a borda */
-        padding: 0 5px; /* Espaçamento lateral para o título */
-    }
-    .section-and-button {
-        display: flex; /* Adiciona Flexbox para alinhar os itens horizontalmente */
-        align-items: center; /* Centraliza verticalmente os itens */
-    }
+.border-title {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    background-color: white;
+    padding: 0 5px;
+}
+
+.section-and-button {
+    display: flex;
+    align-items: center;
+}
 
 /* Anexos */
 .anexo-item {
@@ -67,20 +62,17 @@
     gap: 10px;
 }
 
-
-    /* forms */
-    
+/* forms */
 .form-group {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px;
 }
 
 /* produtos */
-#produtosLista, #anexosLista {
+#produtosLista {
     margin-top: 20px;
 }
 
-#produtosLista .produto-item, #anexosLista {
+.produto-item {
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -88,8 +80,7 @@
     align-items: center;
 }
 
-
-.produto-item button, .anexo-item button {
+.produto-item button {
     margin-left: 10px;
 }
 
